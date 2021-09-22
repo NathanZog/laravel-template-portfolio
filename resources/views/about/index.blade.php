@@ -6,7 +6,7 @@
 
     <div class="container d-flex justify-content-center mt-5">
         <h1>ABOUT</h1>
-        <a href="{{ route('about.create') }}" class="btn btn-success">Create</a>
+        <a href="{{ route('about.create') }}" class="btn mt-2"></a>
     </div>
 
 

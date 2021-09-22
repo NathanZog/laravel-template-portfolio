@@ -20,7 +20,7 @@ class HeaderSeeder extends Seeder
                 'link1' => 'PORTFOLIO',
                 'link2' => 'ABOUT',
                 'link3' => 'CONTACT',
-                'img' => 'avataaars.svg',
+                'img' => 'assets/img/avataaars.svg',
                 'titre' => 'START BOOTSTRAP',
                 'soustitre1' => 'Graphic Artist',
                 'soustitre2' => 'Web Designer ',

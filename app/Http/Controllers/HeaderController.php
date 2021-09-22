@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Header;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HeaderController extends Controller
 {
@@ -14,7 +15,8 @@ class HeaderController extends Controller
      */
     public function index()
     {
-        //
+        $header = Header::all();
+        return view('header.index', compact('header'));
     }
 
     /**
@@ -46,7 +48,8 @@ class HeaderController extends Controller
      */
     public function show(Header $header)
     {
-        //
+        return view('header.show', compact('header'));
+
     }
 
     /**
@@ -57,7 +60,7 @@ class HeaderController extends Controller
      */
     public function edit(Header $header)
     {
-        //
+        return view("header.edit", compact('header'));
     }
 
     /**
@@ -69,7 +72,21 @@ class HeaderController extends Controller
      */
     public function update(Request $request, Header $header)
     {
-        //
+        $header->titrePrincipal = $request->titrePrincipal;
+        $header->link1 = $request->link1;
+        $header->link2 = $request->link2;
+        $header->link3 = $request->link3;
+        $header->img = $request->file('url')->hashName();
+        $header->titre = $request->titre;
+        $header->soustitre1 = $request->soustitre1;
+        $header->soustitre2 = $request->soustitre2;
+        $header->soustitre3 = $request->soustitre3;
+
+        $header->save();
+
+        $request->file("url")->storePublicly("assets/img", "public");
+
+        return redirect()->route("header.index");
     }
 
     /**
@@ -79,7 +96,9 @@ class HeaderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Header $header)
-    {
-        //
+    {   
+        Storage::disk("public")->delete("assets/img/".$header->url);
+        $header->delete();
+        return redirect()->route("header.index");
     }
 }

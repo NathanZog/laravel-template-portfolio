@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <title>Document</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
             <div class="logo_name">Start Bootstrap</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
-        <ul class="nav-list">
+        <ul class="nav-list m-0 p-0">
             <li>
                 <a href="#">
                     <i class='bx bx-grid-alt'></i>
@@ -95,6 +96,6 @@
 
 
 
-    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/scripts.js')}}"></script>
 </body>
 </html>

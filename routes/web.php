@@ -25,12 +25,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [HomeController::class, "index"]);
-Route::get('/backoffice',[BackOfficeController::class, "index"]);
-Route::resource('/header', HeaderController::class);
-Route::resource('/about', AboutController::class);
-Route::resource('/portfolio', PortfolioController::class);
-Route::resource('/contact', ContactController::class);
-Route::resource('/footer', FooterController::class);
+Route::get('/backoffice',[BackOfficeController::class, "index"])->middleware(['auth', 'admin']);
+Route::resource('/header', HeaderController::class)->middleware(['auth', 'admin']);
+Route::resource('/about', AboutController::class)->middleware(['auth', 'admin']);
+Route::resource('/portfolio', PortfolioController::class)->middleware(['auth', 'admin']);
+Route::resource('/contact', ContactController::class)->middleware(['auth', 'admin']);
+Route::resource('/footer', FooterController::class)->middleware(['auth', 'admin']);
 
 
 

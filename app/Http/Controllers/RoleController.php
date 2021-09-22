@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,8 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $about = About::all();
-        return view("about.index", compact('about'));
+    {
+        //
     }
 
     /**
@@ -42,51 +41,45 @@ class AboutController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show(Role $role)
     {
-        return view("about.show", compact('about'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit(Role $role)
     {
-        return view("about.edit", compact('about'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request, Role $role)
     {
-        $about->titre = $request->titre;
-        $about->description1 = $request->description1;
-        $about->description2 = $request->description2;
-
-        $about->save();
-        return redirect()->route("about.index");
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $about)
+    public function destroy(Role $role)
     {
-        $about->delete();
-        return redirect()->route("about.index");
+        //
     }
 }
